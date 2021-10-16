@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+
+:root {
+  /* colors */
+  --purple: #5b21b6;
+  --lightpurple2: #f5f3ff;
+  --lightpurple: #a78bfa;
+  --lightpurple1: #7c3aed;
+  --darkpurple1: #4c1d95;
+  --light-grey: #f9fafb;
+  --light-grey1: #e5e7eb;
+  --lightgrey2: #9ca3af;
+  --midgrey: #6b7280;
+  --darkgrey: #111827;
+  --textgrey: #374151;
+  --lightgreen: #ecfdf5;
+  --darkgreen: #059669;
+  --darkgreen1: #065f46;
+  --lightyellow: #fffbeb;
+  --darkyellow: #f59e0b;
+  --darkyellow1: #d97706;
+  --orange: #ff5722;
+  --lightred: #fef2f2;
+  --darkred: #dc2626;
+  --darkred1: #b91c1c;
+  --lightblue: #eff6ff;
+  --darkblue: #2563eb;
+  --darkblue1: #1d4ed8;
+  --facebook: #3b5998;
+  --twitter: #3cf;
+  --linkedin: #0072b1;
+  --instagram: linear-gradient(#e96443, #904e95);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: var(--textgrey);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.rm {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

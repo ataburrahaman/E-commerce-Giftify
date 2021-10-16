@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState, lazy } from "react";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { Routes, Route } from "react-router";
+import "./App.css";
+const Navbar = lazy(() => import("./components/Navbar/Navbar"));
+const MainHome = lazy(() => import("./components/Home/Home"));
 
-function App() {
+function App({ props }) {
+  const [openHamburger, setOpenHamburger] = useState(false);
+  const [status, setStatus] = useState({
+    loading: true,
+    error: false
+  });
+
+  useEffect(()=>{
+    const timeout = setTimeout(()=>{
+      setStatus({...status, loading: false})
+    }, 5000);
+    return(
+      ()=> clearInterval(timeout)
+     )
+  },[status])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Navbar
+        openHamburger={openHamburger}
+        setOpenHamburger={setOpenHamburger}
+      />
+      <div>
+        {status.loading ? (
+          <CircularProgress color='inherit' />
+        ) : (
+          <Routes>
+            <Route path='/' element={<MainHome />} />
+          </Routes>
+        )}
+      </div>
     </div>
   );
 }

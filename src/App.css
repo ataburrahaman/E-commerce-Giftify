@@ -1,5 +1,8 @@
 .App {
-  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 .App-logo {
@@ -22,6 +25,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.giftify {
+  font-weight: 1000;
+  color: var(--purple);
+  font-family: "Pacifico", cursive;
+  background: transparent;
+  border: none;
 }
 
 .App-link {
