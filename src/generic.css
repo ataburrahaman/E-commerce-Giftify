@@ -3,6 +3,8 @@
 
 :root {
   /* colors */
+  --themGreen: #6d9f16;
+  --themLightGreen: #85B72C;
   --purple: #5b21b6;
   --lightpurple2: #f5f3ff;
   --lightpurple: #a78bfa;
@@ -73,10 +75,69 @@ a {
 }
 
 .fa {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 25rem;
+  /* margin: auto;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 24%);
+  border-radius: 1rem; */
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  background: #fff;
+}
+
+.input-group {
+  position: relative;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.sold-button-purple-color {
+  background: var(--themGreen) !important;
+  color: var(--lightred) !important;
+}
+
+.justification-element {
+  justify-content: space-around;
+}
+
+.user-set-name {
+  text-transform: capitalize;
+}
+
+.input-group .input-area {
+  outline: none;
+  /* border: 1px solid var(--lightgrey2); */
+  /* padding: 0.75rem 0.75rem; */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: transparent;
+}
+.display-center {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.purple-button-style {
+  background: var(--themGreen);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 5px;
 }

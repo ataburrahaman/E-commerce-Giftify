@@ -1,9 +1,12 @@
 import React, { useEffect, useState, lazy } from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
+
 import { Routes, Route } from "react-router";
+import { PageCenterLoader }  from './components/Loading/PageCenterLoader'
 import "./App.css";
 const Navbar = lazy(() => import("./components/Navbar/Navbar"));
-const MainHome = lazy(() => import("./components/Home/Home"));
+const MainHome = lazy(() => import("./Pages/Home/Home"));
+const LoginPage = lazy(() => import("./Pages/Login/Login"));
+const SignInPage = lazy(() => import("./Pages/SignIn/SignIn"));
 
 function App({ props }) {
   const [openHamburger, setOpenHamburger] = useState(false);
@@ -15,7 +18,7 @@ function App({ props }) {
   useEffect(()=>{
     const timeout = setTimeout(()=>{
       setStatus({...status, loading: false})
-    }, 5000);
+    }, 1000);
     return(
       ()=> clearInterval(timeout)
      )
@@ -29,10 +32,14 @@ function App({ props }) {
       />
       <div>
         {status.loading ? (
-          <CircularProgress color='inherit' />
+          <PageCenterLoader />
         ) : (
           <Routes>
             <Route path='/' element={<MainHome />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/signup' element={<SignInPage />} />
+            <Route path='/wishlist' element={<SignInPage />} />
+            <Route path='/checkout/cart' element={<SignInPage />} />
           </Routes>
         )}
       </div>

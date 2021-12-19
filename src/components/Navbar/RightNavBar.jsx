@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { Link,NavLink, useLocation, useNavigate } from "react-router-dom";
+import isEmpty from 'lodash/isEmpty'
 import { useAuth } from "../../context/AuthProvider";
 import { useProduct } from "../../context/ProductProvider";
 const privateRoutes = ['/wishlist', '/checkout/cart', '/checkout/address'];
@@ -32,7 +33,6 @@ export default function RightNavbar() {
   const wrapperRef = useRef(null);
   useOutsideClickDetecter(wrapperRef);
 
-
   const loginHandler = () => {
     navigate("/login");
   };
@@ -48,14 +48,16 @@ export default function RightNavbar() {
 
     setHover((prev) => false);
   };
+  return useMemo(() => {
   return (
     <>
       <ul className='right flex-center rm-ul-padding'>
+        {console.log("Data: auth.user:  ",auth.user)}
         <div className='navbar__list pointer'>
-          {auth.token ? (
+          {!isEmpty(auth.user) ? (
             <div onClick={hoverHandler} className='purple-txt flex-center'>
-              <i className='fa fa-user purple-txt'></i>
-              <span>Hi {auth?.currentUser ? auth.currentUser : ""}!</span>
+              <i className='fa fa-user purple-txt profile-icon-style'></i>
+              <span className="user-set-name">Hi {auth?.user ? auth.user.name : ""}!</span>
             </div>
           ) : (
             <div className='purple-txt pointer' onClick={loginHandler}>
@@ -95,11 +97,12 @@ export default function RightNavbar() {
         <div className='profile-card' ref={wrapperRef}>
           <NavLink to='/checkout/cart'>My Cart</NavLink>
           <NavLink to='/wishlist'>My Wishlist</NavLink>
-          <button className='btn btn-outline-primary' onClick={logout}>
+          <button className='purple-button-style' onClick={logout}>
             Logout
           </button>
         </div>
       )}
     </>
-  );
+  )
+  },[auth.user, hover])
 }
