@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 import {HomePageTopSlideshow} from '../../components/SlideShow/HomePageTopSlider'
+import { HomePageCategory } from '../../components/HomePage/Category'
 
 export default function Home(){
 	return (
@@ -16,6 +17,13 @@ export default function Home(){
 				</div>
 			</Link> */}
       <HomePageTopSlideshow />
+      <HomePageCategory />
+      <div className='row'>
+        <div>
+
+        </div>
+
+      </div>
 			<div className='home__wrapper'>
 				<h1>Top Brands</h1>
 				<div className='home__grid'>
